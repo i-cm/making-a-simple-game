@@ -43,7 +43,7 @@ function Enemys (x: number, y: number, Hard: boolean) {
         mySprite2.setPosition(x, y)
         info.changeScoreBy(2)
         music.baDing.play()
-        mySprite2 = sprites.create(img`
+        mySprite3 = sprites.create(img`
             5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
             5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 
             5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 
@@ -61,7 +61,7 @@ function Enemys (x: number, y: number, Hard: boolean) {
             5 1 1 1 1 1 1 1 1 1 1 1 1 1 1 5 
             5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
             `, SpriteKind.Enemy)
-        mySprite2.setPosition(x, y)
+        mySprite3.setPosition(x - randint(10, 30), y - randint(10, 30))
     } else {
         mySprite2 = sprites.create(img`
             2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
@@ -89,6 +89,7 @@ function Enemys (x: number, y: number, Hard: boolean) {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     game.over(false)
 })
+let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
 Start_game()
